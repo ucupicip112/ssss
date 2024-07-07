@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ulang Tahun - Halaman 1</title>
+    <style>
+        body {
+            background-color: black; /* Warna hitam polos */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            color: white; /* Warna teks putih untuk kontras */
+        }
+        h1 {
+            font-size: 48px; /* Ukuran teks */
+            /* Animasi kelap-kelip */
+            animation: blink 1s infinite;
+            background: linear-gradient(90deg, pink, white); /* Gradien warna latar belakang */
+            -webkit-background-clip: text; /* Clip teks ke latar belakang gradien */
+            -webkit-text-fill-color: transparent; /* Warna teks transparan agar gradien terlihat */
+            display: inline-block; /* Menjaga ukuran teks agar sesuai dengan konten */
+        }
+        /* Animasi kelap-kelip */
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        p {
+            font-size: 18px;
+            color: white; /* Mengubah warna teks menjadi putih */
+            margin-top: 10px; /* Jarak atas dari teks ke foto */
+        }
+        /* gaya foto berbingkai */
+        .photo-frame {
+            border: 10px solid #8b0000; /* Warna bingkai merah tua */
+            padding: 10px;
+            max-width: 80%; /* Lebar maksimum gambar */
+            margin: 0 auto 20px; /* Posisi tengah gambar dan jarak bawah */
+            display: block; /* Membuat gambar menjadi blok untuk pemerataan margin */
+        }
+        /* gaya tautan */
+        .link-to-confirmation {
+            color: white; /* Mengubah warna tautan menjadi putih */
+            text-decoration: none; /* Hapus dekorasi bawaan dari tautan */
+            font-weight: bold; /* Teks tebal */
+            display: inline-block; /* Menjaga tautan agar tidak terlalu lebar */
+            margin-top: 20px; /* Jarak atas dari tautan ke gambar */
+            cursor: pointer; /* Menjadikan kursor berubah saat mengarah ke tautan */
+        }
+        .link-to-confirmation:hover {
+            text-decoration: underline; /* Garis bawah saat kursor mengarah ke tautan */
+        }
+
+        /* gaya popup */
+        .popup {
+            display: none; /* Awalnya sembunyi */
+            position: fixed; /* Mengunci posisi popup */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Warna latar belakang semi-transparent hitam */
+            z-index: 1; /* Mengatur tingkat z-index untuk menampilkan di atas konten */
+        }
+        .popup-content {
+            background-color: #333; /* Warna latar belakang konten popup */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            color: white;
+            text-align: center;
+        }
+        .popup-buttons {
+            margin-top: 20px;
+        }
+        .popup-button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            background-color: #8b0000; /* Warna latar belakang tombol merah tua */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .popup-button:hover {
+            background-color: #6b0000; /* Warna latar belakang tombol sedikit lebih gelap saat dihover */
+        }
+    </style>
+</head>
+<body>
+    <h1>SELAMAT ULANG TAHUN CINTAKUUU</h1>
+    <p>selamat ulang tahun yang ke 23 tahun yaaaa cantiiikk</p>
+	<p>mari kita berdoa dulu</p>
+    <p>ya Allah berikanlah nazwa nisrina haqillah panjang umuurr, sehatt teruusss</p>
+    <p>selaluu suksess dimanapunnn kapanpunn, jadikannlah nazwa anakk yangg baikkkk ya Allah</p>
+	<p>makin sayangg sama ihsannn</p>
+    <p>AAMIIN</p>
+	<p>maaf yaa sayangg aku ngga tau lagi mau ngomong apaa, aku pasti doain yang baikk buat kamu</p>
+    <p>semoga ini bisa buat kamu selalu ingett aku teruss teruss teruss yaaaa</p>
+	<p>.</p>
+    <p>.</p>
+	<p>aku kasih bonus pap cewe cantikkk</p>
+	
+    <!-- Foto berbingkai -->
+    <img src="img/foto.jpg" alt="Foto Berbingkai" class="photo-frame">
+
+    <!-- Pertanyaan -->
+    <p>AKU PUNYA HADIAH NIHHH, KAMU MAU NGGAAA?</p>
+
+    <!-- Tautan untuk memilih "ya" -->
+    <a href="#" id="yesLink" class="link-to-confirmation">MAUUUU    </a>
+    <!-- Tautan untuk memilih "tidak" -->
+    <a href="#" id="noLink" class="link-to-confirmation">G</a>
+
+    <!-- Area untuk menampilkan hasil pilihan -->
+    <p id="choiceResult"></p>
+
+    <!-- Popup konfirmasi untuk pilihan "tidak" -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p id="popupText"></p>
+            <div class="popup-buttons">
+                <button id="continueButton" class="popup-button">NIHH DEH AKU KASIH :P</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skrip JavaScript untuk menangani pilihan -->
+    <script>
+        // Menangani klik pada tautan "Ya"
+        document.getElementById("yesLink").onclick = function() {
+            document.getElementById("choiceResult").textContent = "Buru-buru banget sii kamuuu, ngga sabar yaaa? :p";
+            document.getElementById("popupText").textContent = "Buru-buru banget sii kamuuu, ngga sabar yaaa? :p";
+            document.getElementById("popup").style.display = "block"; // Tampilkan popup konfirmasi
+            return false; // Menghentikan aksi default dari tautan
+        };
+
+        // Menangani klik pada tautan "Tidak"
+        document.getElementById("noLink").onclick = function() {
+            document.getElementById("popupText").textContent = "macaciii pacarku yang cantik ngga mau hadiahh :p";
+            document.getElementById("popup").style.display = "block"; // Tampilkan popup konfirmasi
+            return false; // Menghentikan aksi default dari tautan
+        };
+
+        // Menangani klik pada tombol "Lanjutkan ke Halaman Berikutnya" di dalam popup
+        document.getElementById("continueButton").onclick = function() {
+            window.location.href = "flower.html"; // Redirect ke halaman berikutnya
+            return false; // Menghentikan aksi default dari tombol
+        };
+    </script>
+</body>
+</html>
